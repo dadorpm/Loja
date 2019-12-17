@@ -48,7 +48,7 @@ namespace Loja.Controllers
         // GET: Pedido/Create
         public IActionResult Create()
         {
-            ViewData["RoupaId"] = new SelectList(_context.Set<Roupa>(), "RoupaId", "RoupaId");
+            ViewData["RoupaId"] = new SelectList(_context.Set<Roupa>(), "RoupaId", "Nome");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace Loja.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["RoupaId"] = new SelectList(_context.Set<Roupa>(), "RoupaId", "RoupaId", pedido.RoupaId);
+            ViewData["RoupaId"] = new SelectList(_context.Set<Roupa>(), "RoupaId", "Nome", pedido.RoupaId);
             return View(pedido);
         }
 
@@ -82,7 +82,7 @@ namespace Loja.Controllers
             {
                 return NotFound();
             }
-            ViewData["RoupaId"] = new SelectList(_context.Set<Roupa>(), "RoupaId", "RoupaId", pedido.RoupaId);
+            ViewData["RoupaId"] = new SelectList(_context.Set<Roupa>(), "RoupaId", "Nome", pedido.RoupaId);
             return View(pedido);
         }
 
@@ -118,7 +118,7 @@ namespace Loja.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["RoupaId"] = new SelectList(_context.Set<Roupa>(), "RoupaId", "RoupaId", pedido.RoupaId);
+            ViewData["RoupaId"] = new SelectList(_context.Set<Roupa>(), "RoupaId", "Nome", pedido.RoupaId);
             return View(pedido);
         }
 
